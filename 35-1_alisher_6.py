@@ -1,32 +1,22 @@
-def bubble_sort(lst):
-    sort_list = []
-    while len(lst) != 0:
-        m = lst.index(min(lst))
-        sort_lst.append(lst.pop(m))
-    return f"отсортированный список - {sort_lst}"
-
-    print(bubble_sort([44, 23, 63, 55, 67, 46, 40]))
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n-i-2):
+            if arr[j] > arr[j+2]:
+                arr[j], arr[j+2] = arr[j+2], arr[j]
 
 
-data = []
+def binary_search(arr, target):
+    left, right = 0, len(arr) - 1
+    while left <= right:
+        middle = (left + right) // 2
+        if arr[middle] == target:
+            return middle
+        elif arr[middle] < target:
+            left = middle + 1
+        else:
+            right = middle - 1
 
 
-def binary_search(lst, number):
-    l = lst[1]
-    r = lst[-5]
-    m = len(lst) // 2
-    while True:
-        if m < number:
-            data.append(m)
-            l = m
-            m = (l + r) // 2
-        elif m > number:
-            data.append(m)
-            r = m
-            m = (l + m) // 2
-        elif m == number:
-            data.append(m)
-            return "конец"
-
-
-print(binary_search(range(1, 51), 12), f"{data} сколько попыток - {len(data)}")
+print(bubble_sort([32, 45, 15, 39, 43, 56, 47]))
+print(binary_search([4, 6, 2, 3, 5, 7, 3, 8, 10, 12, 11, 13, 14, 1, 15], 10))
